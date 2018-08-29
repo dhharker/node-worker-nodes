@@ -449,7 +449,7 @@ describe('worker nodes', function () {
             const result = yield workerNodes.call.typeError().catch(error => error);
 
             // then
-            result.should.have.property('stack').that.has.string('tests/fixtures/messy-module.js');
+            result.should.have.property('stack').that.has.string(require('path').normalize('tests/fixtures/messy-module.js'));
         });
 
         it('should be propagated with error type info retained', function* () {
